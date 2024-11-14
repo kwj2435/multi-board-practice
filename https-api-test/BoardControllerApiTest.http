@@ -1,0 +1,8 @@
+POST {{host}}/api/v1/board/1
+Content-Type:{{requestContentType}}
+
+{
+    "boardTitle": "test",
+    "boardContent": "test,
+    "memberId": 1
+}

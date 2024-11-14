@@ -1,10 +1,10 @@
 package com.uijin.mboard.board.repository;
 
-import com.uijin.mboard.board.entity.BoardContentEntity;
+import com.uijin.mboard.board.entity.BoardPostEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BoardContentRepository extends JpaRepository<BoardContentEntity, Long> {
+public interface BoardPostRepository extends JpaRepository<BoardPostEntity, Long> {
 
 }

@@ -1,6 +1,8 @@
 package com.uijin.mboard.board.service;
 
-import com.uijin.mboard.board.repository.BoardContentRepository;
+import com.uijin.mboard.board.entity.BoardPostEntity;
+import com.uijin.mboard.board.model.BoardModel;
+import com.uijin.mboard.board.repository.BoardPostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,9 +10,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class BoardService {
 
-  private final BoardContentRepository boardContentRepository;
+  private final BoardPostRepository boardPostRepository;
 
-  private void getBoardList() {
+  public BoardModel.BoardPostDetailResponse addBoardPost(
+          long boardId,
+          BoardModel.BoardPostRequest boardPostRequest) {
+    BoardPostEntity boardPostEntity = BoardPostEntity.toEntity(boardId, boardPostRequest);
+    BoardPostEntity savedBoardPostEntity = boardPostRepository.save(boardPostEntity);
 
+    return BoardModel.BoardPostDetailResponse.toResponse(savedBoardPostEntity);
   }
 }
